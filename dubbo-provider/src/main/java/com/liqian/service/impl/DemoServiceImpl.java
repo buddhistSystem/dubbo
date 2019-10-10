@@ -1,10 +1,12 @@
 package com.liqian.service.impl;
 
 import com.liqian.dao.UserMapper;
+import com.liqian.entity.User;
 import com.liqian.service.DemoService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @Author: Administrator
@@ -22,5 +24,10 @@ public class DemoServiceImpl implements DemoService {
     @Override
     public int countUser() {
         return userMapper.countUser();
+    }
+
+    @Override
+    public List<User> listUser() {
+        return userMapper.listUser();
     }
 }

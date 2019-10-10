@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liqian.dao.UserMapper">
-
+    <resultMap id="BaseResultMap" type="com.liqian.entity.User">
+        <id column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+    </resultMap>
     <!--用户列表数量 -->
     <select id="countUser" resultType="int">
         select count(*)
+        from erp_sys_user
+    </select>
+    <select id="listUser" resultMap="BaseResultMap">
+        select user_name,password
         from erp_sys_user
     </select>
 
